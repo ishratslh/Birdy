@@ -1,0 +1,8 @@
+Liste des services développés et fonctionnels et ceux qui sont prévus:
+
+Nous avons essayé de développer les services createUser (server\...\user.js), login et logout d'après le td7,
+et aussi d'implémenter les services dédiés aux messages et aux amis.
+Rien n'est vraiment fonctionnel à 100%, l'application se lance et le site affiche une erreur.
+
+Nous essayons en parallèle de retravailler les composants notamment aux niveau des fonctions handle pour connecter 
+tout le travail fait avec les services crées. 

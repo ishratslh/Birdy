@@ -1,0 +1,171 @@
+Voici un exemple de schéma de base de données NoSQL: 
+
+Collection "users":
+{
+    "_id": 101,
+    "mail": "ishrat@gmail.com",
+    "password": "mot de passe",
+    "firstName": "Ishrat",
+    "lastName": "Salehuddin",
+    "profilePic": Binary(...),
+    "content": "Contenu de l'utilisateur",
+    "messages": [
+        1, //id message1
+        2 //id message2
+    ],
+    "friendRequestsReceived": [
+        {
+            "mail": "Jean-Claude@example.com",
+            "firstName": "Jean-Claude",
+            "lastName": "Miam"
+        }
+    ],
+    "friends": [
+        {
+            "mail": "cynthia@example.com",
+            "firstName": "Cynthia",
+            "lastName": "Hached"
+        },
+        {
+            "mail": "Patrick@example.com",
+            "firstName": "Patrick",
+            "lastName": "Coin-coin"
+        }
+    ]
+}
+
+Collection "messages":
+{
+    "_id": 1,
+    "content": "Bonjour tout le monde !",
+    "date": 13122019,
+    "likes": 10,
+    "user": {
+        "mail": "ishrat@gmail.com",
+        "password": "mot de passe",
+        "firstName": "Ishrat",
+        "lastName": "Salehuddin",
+        "profilePic": Binary(...),
+        "content": "Contenu du message"
+    }
+}
+
+
+Collection "friendRequests":
+{
+    "_id": 1,
+    "sender": {
+        "mail": "Jean-Claude@example.com",
+        "firstName": "Jean-Claude",
+        "lastName": "Miam"
+    },
+    "receiver": {
+        "mail": "ishrat@gmail.com",
+        "firstName": "Ishrat",
+        "lastName": "Salehuddin",
+    },
+    "accepted": false
+}
+
+Collection "friends":
+{
+    "user1": {
+        "mail": "cynthia@example.com",
+        "firstName": "Cynthia",
+        "lastName": "Hached"
+    },
+    "user2": {
+        "mail": "Patrick@example.com",
+        "firstName": "Patrick",
+        "lastName": "Coin-coin"
+    }
+}
+
+
+
+En script MySQL, cela donnerait: (avec JMerise)
+
+
+#------------------------------------------------------------
+# Table: _message
+#------------------------------------------------------------
+
+CREATE TABLE _message(
+        id      Int  Auto_increment  NOT NULL ,
+        content Varchar (50) NOT NULL ,
+        date    Date NOT NULL ,
+        likes   Int NOT NULL
+	,CONSTRAINT _message_PK PRIMARY KEY (id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: user
+#------------------------------------------------------------
+
+CREATE TABLE user(
+        mail               Varchar (50) NOT NULL ,
+        password           Varchar (50) NOT NULL ,
+        firstName          Varchar (50) NOT NULL ,
+        lastName           Varchar (50) NOT NULL ,
+        profilePic         TinyBlob NOT NULL ,
+        content            Varchar (50) NOT NULL ,
+        id                 Int NOT NULL ,
+        id__message        Int NOT NULL ,
+        id__message_delete Int NOT NULL
+	,CONSTRAINT user_PK PRIMARY KEY (mail,password)
+
+	,CONSTRAINT user__message_FK FOREIGN KEY (id) REFERENCES _message(id)
+	,CONSTRAINT user__message0_FK FOREIGN KEY (id__message) REFERENCES _message(id)
+	,CONSTRAINT user__message1_FK FOREIGN KEY (id__message_delete) REFERENCES _message(id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: addFriendRequest
+#------------------------------------------------------------
+
+CREATE TABLE addFriendRequest(
+        mail          Varchar (50) NOT NULL ,
+        password      Varchar (50) NOT NULL ,
+        mail_user     Varchar (50) NOT NULL ,
+        password_user Varchar (50) NOT NULL ,
+        accepte       Bool NOT NULL
+	,CONSTRAINT addFriendRequest_PK PRIMARY KEY (mail,password,mail_user,password_user)
+
+	,CONSTRAINT addFriendRequest_user_FK FOREIGN KEY (mail,password) REFERENCES user(mail,password)
+	,CONSTRAINT addFriendRequest_user0_FK FOREIGN KEY (mail_user,password_user) REFERENCES user(mail,password)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: removeFriend
+#------------------------------------------------------------
+
+CREATE TABLE removeFriend(
+        mail          Varchar (50) NOT NULL ,
+        password      Varchar (50) NOT NULL ,
+        mail_user     Varchar (50) NOT NULL ,
+        password_user Varchar (50) NOT NULL
+	,CONSTRAINT removeFriend_PK PRIMARY KEY (mail,password,mail_user,password_user)
+
+	,CONSTRAINT removeFriend_user_FK FOREIGN KEY (mail,password) REFERENCES user(mail,password)
+	,CONSTRAINT removeFriend_user0_FK FOREIGN KEY (mail_user,password_user) REFERENCES user(mail,password)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: friendWith
+#------------------------------------------------------------
+
+CREATE TABLE friendWith(
+        mail          Varchar (50) NOT NULL ,
+        password      Varchar (50) NOT NULL ,
+        mail_user     Varchar (50) NOT NULL ,
+        password_user Varchar (50) NOT NULL
+	,CONSTRAINT friendWith_PK PRIMARY KEY (mail,password,mail_user,password_user)
+
+	,CONSTRAINT friendWith_user_FK FOREIGN KEY (mail,password) REFERENCES user(mail,password)
+	,CONSTRAINT friendWith_user0_FK FOREIGN KEY (mail_user,password_user) REFERENCES user(mail,password)
+)ENGINE=InnoDB;
+
