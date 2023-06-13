@@ -1,0 +1,119 @@
+body {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    background-color: white;
+    color: var(--text);
+    height: 100vh;
+}
+.prince{
+    background-color: white;
+}
+
+a {
+    color: #536cb1;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.grid {
+    display: grid;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    
+}
+
+.page-grid {
+    /*width: min(calc(100% - 1rem), 1024px);*/
+    margin: 1rem auto;
+    background-color: white;
+    min-height: 40rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-sizing: 0 0 0 4px var(--secondary);
+    
+}
+
+.form-wrapper,
+.banner {
+    padding: 2rem;
+}
+
+.header {
+    margin-bottom: 2rem;
+}
+
+.header p {
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.field input {
+    font-size: 1rem;
+    line-height: 48px;
+    padding: 0 1rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 0 2px #5c0a29;
+    width: 50%;
+}
+
+.field input::placeholder {
+    font-family: inherit;
+    opacity: 0.5;
+    width: 50%;
+}
+
+.btn {
+    width: 50%;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    margin-top: 1.25rem;
+    cursor: pointer;
+    background: #536cb1;
+    line-height: 48px;
+    font-family: inherit;
+    font-size: inherit;
+    color: white;
+}
+    
+.btn-primary {
+    background: #5c0a29;
+    color: var(--primary);
+    color: white;
+}
+
+@media (min-width: 768px) {
+    .page-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .banner {
+        background: var(--secondary);
+        order: 2;
+    }
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+

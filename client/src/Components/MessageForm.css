@@ -1,0 +1,33 @@
+.content {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    background: #d3d0e1;
+    color: var(--text);
+    height: 100vh;
+}
+
+.fff textarea {
+    font-size: 1rem;
+    line-height: 48px;
+    padding: 0 1rem;
+    width: 50%;
+    border-radius: 0.5rem;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 0 2px #5c0a29;
+}
+
+.fff button{
+    width: 50%;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    margin-top: 1.25rem;
+    cursor: pointer;
+    background: #5c0a29;
+    line-height: 48px;
+    font-family: inherit;
+    font-size: inherit;
+}
+

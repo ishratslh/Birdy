@@ -1,0 +1,179 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: "Poppins", sans-serif;
+    background: #eaf0f5;
+    color: var(--text);
+    margin: 0;
+}
+
+/* Header styles */
+.header-page {
+    font-family: "Poppins", sans-serif;
+    padding: 10px;
+    background-color: white;
+    flex : content;
+}
+
+header {
+    background-color: #b15363;
+    padding : 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 150px;
+}
+
+header .left-side {
+    background-color: #b15363;
+    height: 100%;
+    width: 20%;
+    align-items: center;
+    text-align: center;
+}
+
+header .middle-side {
+    background-color: #b15363;
+    width: 60%; 
+    align-items: center;
+    text-align: center;
+}
+
+header .right-side {
+    background-color: #b15363;
+    width: 20%;
+    height: 100%;
+    
+}
+
+.name,
+.logo {
+    color: black;
+    
+}
+
+header .middle-side input {
+    font-size: 1rem;
+    line-height: 48px;
+    padding: 0 1rem;
+    width: 90%;
+    border-radius: 0.5rem;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 0 2px #5c0a29;
+    margin-right: 10px;
+    
+}
+
+header .middle-side input::placeholder {
+    font-family: inherit;
+    opacity: 0.5;
+}
+
+
+header .middle-side button {
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    background: #5c0a29;
+    line-height: 48px;
+    font-family: inherit;
+    font-size: inherit;
+    color: white;
+    padding: 0 1rem;
+    
+}
+
+header .right-side button {
+    background: #5c0a29;
+ 
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+}
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    float: left;
+    width: 9.5%;
+    padding: 10px;
+    height: 100%;
+    overflow: auto;
+    margin-right: 20px;
+    width: 200px;
+    background-color: #faeded;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+
+}
+
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+}
+    
+.sidebar a.active {
+    background-color: #b15363;
+    color: white;
+}
+
+.sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+
+main .left-side {
+    background-color: #faeded;
+    width: 10.5%;
+    padding: 5px;
+    align-items: center;
+    text-align: center;
+    height: 800px;
+}
+
+main .middle-side {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 5px;
+    height: 100%;
+}
+
+main .right-side {
+    background-color: white;
+    flex: 1;
+    margin-left: 20px;
+    width: 1000%;
+    padding: 5px;
+    padding-right: 10px;
+    align-items: center;
+    height: 100%;   
+}
+
+.middle{
+    background-color: white;
+}
+
+@media screen and (max-width: 700px) {
+    .row {   
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .sidebar a {
+        float: none;
+        width: 100%;
+        
+    }
+}

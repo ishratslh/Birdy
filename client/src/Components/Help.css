@@ -1,0 +1,61 @@
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.body{
+    background-color: white;
+}
+
+.Help-h {
+    background-color: #963747;
+    color: white;
+    padding: 20px;
+    
+}
+
+.Help-main {
+    max-width: 800px;
+    margin: 2em auto;
+    padding: 20px;
+    background-color: white;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+.Help-section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 24px;
+    color: #b15372;
+    margin-bottom: 20px;
+
+
+}
+
+.faq-items {
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 18px;
+    color: black;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    color: #051647; 
+}
+
+footer {
+    background-color: #ccc;
+    padding: 1em;
+    text-align: center;
+}
