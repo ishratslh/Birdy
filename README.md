@@ -1,4 +1,5 @@
 # Projet Birdy
+![alt text](https://png.pngtree.com/template/20191014/ourmid/pngtree-bird-fly-logo-vector-silhouette-image_318771.jpg)
 
 Dans le cadre de l'UE Technologies du Web [LU3IN017], nous avons réalisé un projet visant à développer 
 « from scratch » un site web de type Twitter en utilisant des langages web comme JS/HTML/CSS/SQL…. 
