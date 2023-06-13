@@ -27,3 +27,6 @@ Le projet (côté serveur) sera organisé de la manière suivante :
 - [ ] src/routes/, un répertoire qui contient le code qui définit les routes
 - [ ] src/entities/, un répertoire qui contiendra les différentes entités à manipuler, par exemple src/entities/users.js
 pour la gestion des utilisateurs.
+
+
+
